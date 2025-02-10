@@ -1,0 +1,82 @@
+body {
+    background-color: burlywood;
+}
+
+header {
+    width: 1000px;
+    height: 150px;
+}
+
+#contenedor {
+    width: 1000px;
+    height: 800px;
+    margin: 0 auto;
+}
+
+#logo{
+    background-color: white;
+    width: 200px;
+    height: 150px;
+    float: left;
+    border: solid right;
+
+}
+
+#logo img {
+    width: 150px;
+    height: 100px;
+    display: block;
+    margin: auto;
+    
+}
+
+#slogan {
+    background-color: red;
+    width: 800px;
+    height: 150px;
+    float: left;
+    text-align: center;
+}
+
+nav {
+    clear: both;
+    background-color: orange;
+}
+
+nav a {
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+aside {
+    background-color: rebeccapurple;
+    width: 200px;
+    height: 400px;
+    float: left;
+}
+
+section {
+    background-color: white;
+    width: 800px;
+    height: 400px;
+    float: right;
+}
+
+article h1 {
+    text-align: center;
+}
+
+article p {
+    text-align: justify;
+}
+
+article ol li {
+    text-align: justify;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    clear: both;
+    text-align: center;
+}
