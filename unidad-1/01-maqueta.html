@@ -1,6 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+        function includeHTML() {
+        var z, i, elmnt, file, xhttp;
+        /*loop through a collection of all HTML elements:*/
+        z = document.getElementsByTagName("*");
+        for (i = 0; i < z.length; i++) {
+            elmnt = z[i];
+            /*search for elements with a certain attribute:*/
+            file = elmnt.getAttribute("w3-include-html");
+            if (file) {
+            /*make an HTTP request using the attribute value as the file name:*/
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4) {
+                if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                /*remove the attribute, and call this function once more:*/
+                elmnt.removeAttribute("w3-include-html");
+                includeHTML();
+                }
+            }      
+            xhttp.open("GET", file, true);
+            xhttp.send();
+            /*exit the function:*/
+            return;
+            }
+        }
+        };
+        </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio</title>
@@ -27,11 +56,7 @@
             </div>
         </header>
         <nav>
-            <a href="01-maqueta.html">Inicio</a>
-            <a href="cocacola.html">Coca-Cola-Clasica</a>
-            <a href="sprite.html">Sprite</a>
-            <a href="fanta.html">Fanta</a>
-            <a href="monster.html">Monster</a>
+            <div w3-include-html="navs.html"></div>
         </nav>
 
         <aside>
@@ -44,7 +69,7 @@
                 <textarea name="mensaje" id="mensaje" cols="20" rows="10" required></textarea>
                 <br>
                 <input type="submit" value="Enviar">
-
+            </form>
         </aside>
 
         <section>
@@ -68,13 +93,57 @@
                     </li>
                     <li>
                         <strong>Monster:</strong> Una bebida energética, muy popular en todo el mundo.
+                    </li>
                 </ol>
 
+                <h2>Información breve en forma de lista</h2>
+                <ul>
+                    <li>Fundada en 1886</li>
+                    <li>Presente en más de 200 países</li>
+                    <li>Más de 500 marcas de bebidas</li>
+                    <li>Compromiso con la sostenibilidad</li>
+                </ul>
+
+                <h2>Información breve en forma de tabla</h2>
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>Producto</th>
+                            <th>Tipo</th>
+                            <th>Popularidad</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Coca Cola</td>
+                            <td>Refresco</td>
+                            <td>Alta</td>
+                        </tr>
+                        <tr>
+                            <td>Sprite</td>
+                            <td>Refresco</td>
+                            <td>Alta</td>
+                        </tr>
+                        <tr>
+                            <td>Fanta</td>
+                            <td>Refresco</td>
+                            <td>Alta</td>
+                        </tr>
+                        <tr>
+                            <td>Monster</td>
+                            <td>Bebida energética</td>
+                            <td>Alta</td>
+                        </tr>
+                    </tbody>
+                </table>
             </article>
         </section>
         <footer>
             <p>&copy; 2024 Coca Cola</p>
         </footer>
     </div>
+    <script>
+        includeHTML();
+    </script>
 </body>
 </html>

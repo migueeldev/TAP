@@ -1,6 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+        function includeHTML() {
+        var z, i, elmnt, file, xhttp;
+        /*loop through a collection of all HTML elements:*/
+        z = document.getElementsByTagName("*");
+        for (i = 0; i < z.length; i++) {
+            elmnt = z[i];
+            /*search for elements with a certain attribute:*/
+            file = elmnt.getAttribute("w3-include-html");
+            if (file) {
+            /*make an HTTP request using the attribute value as the file name:*/
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4) {
+                if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                /*remove the attribute, and call this function once more:*/
+                elmnt.removeAttribute("w3-include-html");
+                includeHTML();
+                }
+            }      
+            xhttp.open("GET", file, true);
+            xhttp.send();
+            /*exit the function:*/
+            return;
+            }
+        }
+        };
+        </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sprite</title>
@@ -26,11 +55,7 @@
             </div>
         </header>
         <nav>
-            <a href="01-maqueta.html">Inicio</a>
-            <a href="cocacola.html">Coca-Cola-Clasica</a>
-            <a href="sprite.html">Sprite</a>
-            <a href="fanta.html">Fanta</a>
-            <a href="monster.html">Monster</a>
+            <div w3-include-html="navs.html"></div> 
         </nav>
 
         <aside>
@@ -43,7 +68,7 @@
                 <textarea name="mensaje" id="mensaje" cols="20" rows="10" required></textarea>
                 <br>
                 <input type="submit" value="Enviar">
-
+            </form>
         </aside>
 
         <section>
@@ -52,11 +77,53 @@
                 <p>
                     Sprite es una bebida gaseosa sin cafeína, producida por The Coca-Cola Company. Fue creada en Alemania Occidental en 1959 y lanzada en los Estados Unidos en 1961. La bebida es clara, limonada y refrescante, con un sabor a limón y lima.
                 </p>
+                <br>
+                <img src="img/sprite.jpeg" alt="Imgen sprite" style="width: 200px; height: 150px; display: block; margin: auto;">
+                <br>
+
+                <h2>Información breve en forma de lista</h2>
+                <ul>
+                    <li>Creada en 1959</li>
+                    <li>Lanzada en Estados Unidos en 1961</li>
+                    <li>Sin cafeína</li>
+                    <li>Sabor a limón y lima</li>
+                </ul>
+
+                <h2>Información breve en forma de tabla</h2>
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>Año</th>
+                            <th>Evento</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1959</td>
+                            <td>Creación de Sprite en Alemania Occidental</td>
+                        </tr>
+                        <tr>
+                            <td>1961</td>
+                            <td>Lanzamiento de Sprite en Estados Unidos</td>
+                        </tr>
+                        <tr>
+                            <td>1989</td>
+                            <td>Introducción de Sprite Light</td>
+                        </tr>
+                        <tr>
+                            <td>2013</td>
+                            <td>Lanzamiento de Sprite Zero</td>
+                        </tr>
+                    </tbody>
+                </table>
             </article>
         </section>
         <footer>
             <p>&copy; 2024 Coca Cola</p>
         </footer>
     </div>
+    <script>
+        includeHTML();
+    </script>
 </body>
 </html>

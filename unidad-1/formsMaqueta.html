@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        function includeHTML() {
+        var z, i, elmnt, file, xhttp;
+        /*loop through a collection of all HTML elements:*/
+        z = document.getElementsByTagName("*");
+        for (i = 0; i < z.length; i++) {
+            elmnt = z[i];
+            /*search for elements with a certain attribute:*/
+            file = elmnt.getAttribute("w3-include-html");
+            if (file) {
+            /*make an HTTP request using the attribute value as the file name:*/
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4) {
+                if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                /*remove the attribute, and call this function once more:*/
+                elmnt.removeAttribute("w3-include-html");
+                includeHTML();
+                }
+            }      
+            xhttp.open("GET", file, true);
+            xhttp.send();
+            /*exit the function:*/
+            return;
+            }
+        }
+        };
+        </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+
+    <!--Tipografia-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+    <!--Estilos-->
+    <link rel="stylesheet" href="css/estilosMaqueta.css">
+
+
+</head>
+<body>
+    <div id="contenedor">
+        <header>
+            <div id="logo">
+                <img src="img/the_coca_cola_company_logo.jpeg" alt="logoCocacolaCompany">
+            </div>
+            <div id="slogan">
+                <h1 style="text-align: center;">THE COCA COLA COMPANY</h1>
+                <p style="text-align: center;">Siente el sabor</p>
+            </div>
+        </header>
+
+        <nav>
+
+            <div w3-include-html="01-navs.html"></div> 
+        </nav>
+
+        <aside>
+            <h2>Formulario de contacto</h2>
+            <form>
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" required>
+                <br>
+                <label for="mensaje">Mensaje:</label>
+                <textarea name="mensaje" id="mensaje" cols="20" rows="10" required></textarea>
+                <br>
+                <input type="submit" value="Enviar">
+            </form>
+        </aside>
+
+        <section>
+            <h2>Formulario de Registro</h2>
+            <form>
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+                <br>
+                <label for="apellido">Apellido:</label>
+                <input type="text" id="apellido" name="apellido" required>
+                <br>
+                <label for="pais">País:</label>
+                <select id="pais" name="pais">
+                    <option value="mexico">México</option>
+                    <option value="usa">Estados Unidos</option>
+                    <option value="canada">Canadá</option>
+                </select>
+                <br>
+                <label for="ciudad">Ciudad:</label>
+                <input list="ciudades" id="ciudad" name="ciudad">
+                <datalist id="ciudades">
+                    <option value="Ciudad de México">
+                    <option value="Guadalajara">
+                    <option value="Monterrey">
+                </datalist>
+                <br>
+                <label>Género:</label>
+                <input type="radio" id="masculino" name="genero" value="masculino">
+                <label for="masculino">Masculino</label>
+                <input type="radio" id="femenino" name="genero" value="femenino">
+                <label for="femenino">Femenino</label>
+                <br>
+                <input type="submit" value="Registrar">
+            </form>
+
+            <h2>Formulario de Suscripción</h2>
+            <form>
+                <label for="correo">Correo Electrónico:</label>
+                <input type="email" id="correo" name="correo" required>
+                <br>
+                <label for="frecuencia">Frecuencia de envío:</label>
+                <select id="frecuencia" name="frecuencia">
+                    <option value="diaria">Diaria</option>
+                    <option value="semanal">Semanal</option>
+                    <option value="mensual">Mensual</option>
+                </select>
+                <br>
+                <input type="submit" value="Suscribirse">
+            </form>
+
+            <h2>Formulario de Preferencias</h2>
+            <form>
+                <label for="preferencias">Seleccione sus preferencias:</label>
+                <br>
+                <input type="checkbox" id="noticias" name="preferencias" value="noticias">
+                <label for="noticias">Noticias</label>
+                <br>
+                <input type="checkbox" id="promociones" name="preferencias" value="promociones">
+                <label for="promociones">Promociones</label>
+                <br>
+                <input type="checkbox" id="actualizaciones" name="preferencias" value="actualizaciones">
+                <label for="actualizaciones">Actualizaciones</label>
+                <br>
+                <input type="submit" value="Guardar Preferencias">
+            </form>
+        </section>
+        <footer>
+            <p>&copy; 2024 Coca Cola</p>
+        </footer>
+
+    </div>
+    
+    <script>
+        includeHTML();
+    </script>
+</body>
+</html>
