@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test de Estilos de Aprendizaje</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<style>
+    /* estilos.css */
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f8fb;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #2c3e50;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+nav {
+  background-color: #34495e;
+  padding: 10px;
+  text-align: center;
+}
+
+nav a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #f39c12;
+}
+
+section {
+  padding: 20px;
+  max-width: 800px;
+  margin: auto;
+  background: white;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input[type="text"], input[type="email"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+input[type="radio"] {
+  margin-right: 8px;
+}
+
+input[type="submit"] {
+  background-color: #27ae60;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+  background-color: #1e8449;
+}
+
+footer {
+  background-color: #2c3e50;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  /* Eliminar estas líneas: */
+  /* position: fixed; */
+  /* bottom: 0; */
+  /* width: 100%; */
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+  margin-top: 40px;
+}
+
+
+</style>
+<body>
+  <header>
+    <h1>Test de Estilos de Aprendizaje</h1>
+  </header>
+
+  <nav>
+    <a href="index.html">Inicio</a>
+  
+    <a href="usuarios.php">Ver Resultados</a>
+  </nav>
+
+  <section>
+    <form action="procesar_test.php" method="POST">
+      <h2>Datos del usuario</h2>
+      <label for="nombre">Nombre:</label>
+      <input type="text" name="nombre" required><br>
+      <label for="correo">Correo:</label>
+      <input type="email" name="correo" required><br><br>
+
+      <h2>Test de Estilos de Aprendizaje (preguntas 1 a 10)</h2>
+
+      <p>1. ¿Cuál de las siguientes actividades disfrutas más?</p>
+      <input type="radio" name="p1" value="b" required> Escuchar música<br>
+      <input type="radio" name="p1" value="c"> Ver películas<br>
+      <input type="radio" name="p1" value="a"> Bailar con buena música<br>
+
+      <p>2. ¿Qué programa de televisión prefieres?</p>
+      <input type="radio" name="p2" value="a" required> Reportajes<br>
+      <input type="radio" name="p2" value="c"> Cómico y entretenimiento<br>
+      <input type="radio" name="p2" value="b"> Noticias del mundo<br>
+
+      <p>3. Cuando conversas con otra persona, tú:</p>
+      <input type="radio" name="p3" value="b" required> La escuchas atentamente<br>
+      <input type="radio" name="p3" value="a"> La observas<br>
+      <input type="radio" name="p3" value="c"> Tiendes a tocarla<br>
+
+        <p>4. ¿Qué tipo de música prefieres?</p>
+        <input type="radio" name="p4" value="a" required> Música clásica<br>
+        <input type="radio" name="p4" value="b"> Música pop<br>
+        <input type="radio" name="p4" value="c"> Música rock<br>
+      <p>5. ¿Cómo prefieres aprender?</p>
+      <input type="radio" name="p5" value="a" required> Leyendo<br>
+      <input type="radio" name="p5" value="b"> Escuchando<br>
+      <input type="radio" name="p5" value="c"> Haciendo<br>
+      <p>6. ¿Qué tipo de libros prefieres?</p>
+      <input type="radio" name="p6" value="a" required> Novelas<br>
+      <input type="radio" name="p6" value="b"> Libros de autoayuda<br>
+      <input type="radio" name="p6" value="c"> Libros de ciencia ficción<br>
+      <p>7. ¿Cómo prefieres estudiar?</p>
+      <input type="radio" name="p7" value="a" required> Con música<br>
+      <input type="radio" name="p7" value="b"> En silencio<br>
+      <input type="radio" name="p7" value="c"> Con amigos<br>
+      <p>8. ¿Qué tipo de actividades prefieres?</p>
+      <input type="radio" name="p8" value="a" required> Actividades al aire libre<br>
+      <input type="radio" name="p8" value="b"> Actividades en grupo<br>
+      <input type="radio" name="p8" value="c"> Actividades en solitario<br>
+      <p>9. ¿Cómo prefieres recibir instrucciones?</p>
+      <input type="radio" name="p9" value="a" required> Leyendo<br>
+      <input type="radio" name="p9" value="b"> Escuchando<br>
+      <input type="radio" name="p9" value="c"> Viendo<br>
+      <p>10. ¿Qué tipo de juegos prefieres?</p>
+      <input type="radio" name="p10" value="a" required> Juegos de mesa<br>
+      <input type="radio" name="p10" value="b"> Videojuegos<br>
+      <input type="radio" name="p10" value="c"> Juegos de rol<br>
+
+      <br><input type="submit" value="Enviar Test">
+    </form>
+    
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Migueeldev</p>
+  </footer>
+</body>
+</html>
