@@ -1,12 +1,5 @@
 # 🌐 Tópicos Avanzados de Programación
 
-Este repositorio contiene todo el material de la materia **Tópicos Avanzados de Programación**. Aquí encontrarás el código fuente.
-
-## 📋 Autor:
-**[migueeldev](https://github.com/migueeldev)**  
-
----
-
 ## 🗂 Estructura
 
 ### Unidad 1: Interfaz gráfica de usuario
